@@ -53,4 +53,34 @@ To run code, hit the run button in the top left:
 If you see this, congratulations you are a now a Snowflake user ❄️💪
 <img width="1437" alt="image" src="https://user-images.githubusercontent.com/7769335/159690141-75d376c3-eaf4-4b64-8e30-814351d82c6d.png">
 
-## Install Python
+## Python
+
+We will use a Python program to load data into Snowflake.
+
+### Install Python
+
+Go to [python.org](https://www.python.org/), download and install Python.
+
+<img width="971" alt="image" src="https://user-images.githubusercontent.com/7769335/159690661-6719e4d4-74e8-4fcf-be20-90d02ba2cb42.png">
+
+On Windows you should choose **Add Python to PATH**
+![image](https://user-images.githubusercontent.com/7769335/159690932-944f52aa-f543-4b3b-8501-f72ceead2530.png)
+
+### Test Python installation
+
+- **On Windows:** open CMD
+- **On Mac:** open Terminal
+
+Run the following command:
+
+```bash
+python --version
+```
+*Or, if that didn't work, try:*
+```bash
+python3 --version
+```
+
+If you see something like this, Python is installed correctly:
+
+<img width="419" alt="image" src="https://user-images.githubusercontent.com/7769335/159692201-b225e9b3-75df-44b0-93bb-03502940d49c.png">
