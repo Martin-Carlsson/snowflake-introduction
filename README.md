@@ -7,7 +7,8 @@ Content for the Snowflake introduction course
 1. [Create Snowflake trial](#create-snowflake-trial)
 1. [Take Snowflake for a spin](#take-snowflake-for-a-spin)
 1. [Install Python](#install-python)
-
+1. [Install Docker Desktop](#install-docker-desktop)
+1. [Install git](#install-git)
 
 ## Create Snowflake trial
 
@@ -53,9 +54,9 @@ To run code, hit the run button in the top left:
 If you see this, congratulations you are a now a Snowflake user ❄️💪
 <img width="1437" alt="image" src="https://user-images.githubusercontent.com/7769335/159690141-75d376c3-eaf4-4b64-8e30-814351d82c6d.png">
 
-## Python
+## The advanced part
 
-We will use a Python program to load data into Snowflake.
+We will use a Python, git and, docker to load data into Snowflake.
 
 ### Install Python
 
@@ -84,3 +85,28 @@ python3 --version
 If you see something like this, Python is installed correctly:
 
 <img width="419" alt="image" src="https://user-images.githubusercontent.com/7769335/159692201-b225e9b3-75df-44b0-93bb-03502940d49c.png">
+
+
+### Install docker desktop
+
+Install Docker desktop from: [www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
+
+You may need to create an account on [hub.docker.com/signup](https://hub.docker.com/signup)
+
+### Install git 
+
+#### On Mac
+
+Type this in to the Terminal:
+
+```bash
+git --version
+```
+
+If git is installed, you will see the installed version number.
+
+If git inn't installed, the installation will start.
+
+#### On Windows
+
+Install from [git-scm.com/download/win](https://git-scm.com/download/win) choose **64-bit Git for Windows Setup.**
