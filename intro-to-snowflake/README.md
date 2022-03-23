@@ -1,7 +1,7 @@
 # Introduction to Snowflake
 
 - What problem does Snowflake solve
-- What is Snowflake
+- What is Snowflake [www.snowflake.com/product/architecture](https://www.snowflake.com/product/architecture/)
 - Storage
 - Warehouses
   - How they work
