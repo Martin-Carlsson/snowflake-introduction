@@ -5,7 +5,7 @@ Content for the Snowflake introduction course
 # Preparation before the course 
 
 1. [Create Snowflake trial](#create-snowflake-trial)
-1. [Connect to Snowflake Data Marketplace](#connect-to-snowflake-data-marketplace)
+1. [Take Snowflake for a spin](#take-snowflake-for-a-spin)
 1. [Install Python](#install-python)
 
 
@@ -30,6 +30,27 @@ Write down:
 <img width="363" alt="image" src="https://user-images.githubusercontent.com/7769335/159674460-7efb31f1-9d25-47f3-9dc2-6a4d6af1f15f.png">
 
 
-## Connect to Snowflake Data Marketplace
+## Take Snowflake for a spin
+
+- Click on **Worksheets**
+- Click on **+ Worksheet**
+
+<img width="1399" alt="image" src="https://user-images.githubusercontent.com/7769335/159688978-9f65593a-b58d-440e-a963-6d415c57840d.png">
+
+Run the following code:
+```sql
+select top 100 
+    *
+from
+    snowflake_sample_data.tpch_sf10.orders;
+```
+
+To run code, hit the run button in the top left:
+
+<img width="46" alt="image" src="https://user-images.githubusercontent.com/7769335/159689722-20a486cd-fa4e-4281-9d1a-2bb0cfaa5427.png">
+ 
+
+If you see this, congratulations you are a now a Snowflake user ❄️💪
+<img width="1437" alt="image" src="https://user-images.githubusercontent.com/7769335/159690141-75d376c3-eaf4-4b64-8e30-814351d82c6d.png">
 
 ## Install Python
