@@ -42,6 +42,50 @@ select * from row_count_total;
 
 ## Group By with Sum and Count
 ```sql
+
+with store_sales_fields as (
+    select
+        'store_sales' as sales_type,
+        ss_sold_date_sk as date_id,
+        ss_net_profit as profit 
+    from
+        store_sales
+),
+
+catalog_sales_fields as (
+    select
+        'catalog_sales' as sales_type,
+        cs_sold_date_sk as date_id,
+        cs_net_profit as profit
+    from
+        catalog_sales
+),
+
+ web_sales_fields as (
+    select
+        'web_sales' as sales_type,
+        ws_sold_date_sk as date_id,
+        ws_net_profit as profit
+    from
+        web_sales
+),
+ 
+unioned_sales as (
+    select * from store_sales_fields
+        union all
+    select * from catalog_sales_fields
+        union all
+    select * from web_sales_fields
+),
+
+date_fields as (
+    select
+        d_date_sk as date_id,
+        d_year as year
+    from
+        date_dim
+)
+
 select
     unioned_sales.sales_type,
     date_fields.year, 
