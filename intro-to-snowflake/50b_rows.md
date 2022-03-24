@@ -2,8 +2,10 @@
 
 ## Setup 
 ```sql
-use schema TPCDS_SF10TCL; --50b
-use schema TPCDS_SF100TCL; --500b
+use database snowflake_sample_data;
+
+use schema tpcds_sf10tcl; --50b
+use schema tpcds_sf100tcl; --500b
 
 --use role accountadmin;
 
