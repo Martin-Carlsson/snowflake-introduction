@@ -54,6 +54,98 @@ To run code, hit the run button in the top left:
 If you see this, congratulations you are a now a Snowflake user ❄️💪
 <img width="1437" alt="image" src="https://user-images.githubusercontent.com/7769335/159690141-75d376c3-eaf4-4b64-8e30-814351d82c6d.png">
 
+### 50,400,240,948
+
+To feel the power of Snowflake.
+
+```sql
+use schema snowflake_sample_data.tpcds_sf10tcl; --50b
+use schema snowflake_sample_data.tpcds_sf10tcl; --500b
+
+alter session set use_cached_result = true;
+
+-- Count
+with row_count as (
+    select 'store_sales' as name, count(*) as row_count from store_sales
+        union all
+    select 'catalog_sales' as name, count(*) as row_count from catalog_sales
+        union all
+    select 'web_sales' as name, count(*) as row_count from web_sales
+        union all
+    select 'date_dim' as name, count(*) as row_count from date_dim
+),
+
+row_count_total as (
+    select 'row_count_total' as name, sum(row_count) from row_count
+)
+
+select * from row_count
+    union all
+select * from row_count_total;
+
+
+with store_sales_fields as (
+    select
+        'store_sales' as sales_type,
+        ss_sold_date_sk as date_id,
+        ss_net_profit as profit 
+    from
+        store_sales
+),
+
+catalog_sales_fields as (
+    select
+        'catalog_sales' as sales_type,
+        cs_sold_date_sk as date_id,
+        cs_net_profit as profit
+    from
+        catalog_sales
+),
+
+ web_sales_fields as (
+    select
+        'web_sales' as sales_type,
+        ws_sold_date_sk as date_id,
+        ws_net_profit as profit
+    from
+        web_sales
+),
+ 
+unioned_sales as (
+    select * from store_sales_fields
+        union all
+    select * from catalog_sales_fields
+        union all
+    select * from web_sales_fields
+),
+
+date_fields as (
+    select
+        d_date_sk as date_id,
+        d_year as year
+    from
+        date_dim
+)
+
+-- Group By with Sum and Count
+select
+    unioned_sales.sales_type,
+    date_fields.year, 
+    sum(abs(profit)) as sum_of_profit,
+    count(*) as number_of_rows
+from
+    unioned_sales
+    left join date_fields on unioned_sales.date_id = date_fields.date_id
+where
+    date_fields.year is not null
+group by
+    1, 2
+order by 
+    1,2;
+
+alter warehouse xxlargewarehouse suspend;
+```
+
 ## The advanced part
 
 We will use a Python, git and, docker to load data into Snowflake.
